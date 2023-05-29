@@ -1,0 +1,148 @@
+==============================================arrays========================================
+
+----------------------sum and avg of array---------------------------------
+
+
+package com.mycompany.mavenproject1;
+import java.util.Scanner;
+import java.util.Arrays;
+public class Mavenproject1 {
+    public static void main(String[] args) {
+        int sum=0;
+        int[]arr = {30,5,15,16,20};
+        for(int i=0; i<arr.length;i++){
+            sum+=arr[i];
+        }
+        float avg = (float)sum/arr.length;
+        System.out.print(avg);
+        }       
+}
+    
+---------------------------sort array----------------------------------------
+package com.mycompany.mavenproject1;
+import java.util.Scanner;
+import java.util.Arrays;
+public class Mavenproject1 {
+        public static void main(String[] args) {
+        int sum=0;
+        String[]arr = {"mohamed","ahmed","salim","hassan","ziad"};
+        Arrays.sort(arr);
+        
+        System.out.print(Arrays.toString(arr));
+        }       
+}
+
+-----------------------------------------copy array---------------------------------------
+package com.mycompany.mavenproject1;
+import java.util.Scanner;
+import java.util.Arrays;
+public class Mavenproject1 {
+    public static void main(String[] args) {
+        int sum=0;
+        char[]arr1 = {'a','b','c','d','m','f','g','j','q','w','y'};
+        char[]arr2 = new char[7];
+        System.arraycopy(arr1,2,arr2,0,7);
+        System.out.print(String.valueOf(arr2));
+        }       
+}
+---------------------------------------print following grid-------------------------------------------
+package com.mycompany.mavenproject1;
+import java.util.Scanner;
+import java.util.Arrays;
+public class Mavenproject1 {
+    public static void main(String[] args) {
+        int[][]arr = new int[10][10];
+        for(int i=0;i<10;i++){
+            for(int j=0;j<10;j++){
+                System.out.print(arr[i][j]);
+            }
+            System.out.println();
+        }
+        }       
+}
+
+----------------------------------if array contain specific value--------------------------------------
+package com.mycompany.mavenproject1;
+import java.util.Scanner;
+import java.util.Arrays;
+public class Mavenproject1 {
+    public static void main(String[] args) {
+        int search=2013;
+        int[]arr = {2013,2020,2021,1920,1995} ;
+        for(int i=0;i<arr.length;i++){
+            if(arr[i] == search){
+                System.out.print("found"+" " +arr[i]);
+            }
+        }
+    }       
+}
+
+--------------------------------------add to matrices------------------------------------
+package com.mycompany.mavenproject1;
+import java.util.Scanner;
+import java.util.Arrays;
+public class Mavenproject1 {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int n,m;
+        System.out.print("enter number of rows : ");
+        n=input.nextInt();
+        System.out.print("enter number of column : ");
+        m=input.nextInt();
+        int arr1[][] = new int[n][m];
+        int arr2[][] = new int[n][m];
+        int sum[][] = new int[n][m];
+        System.out.print("enter array1 : ");
+        for(int i=0; i<n;i++){
+           for(int j=0;j<m;j++){
+               arr1[n][m] = input.nextInt() ; 
+            }
+        }
+        System.out.print("enter array2 : ");
+        for(int i=0; i<n;i++){
+           for(int j=0;j<m;j++){
+               arr2[n][m] = input.nextInt() ; 
+            }
+        }
+        for(int i=0; i<n;i++){
+           for(int j=0;j<m;j++){
+               sum[n][m] = arr1[n][m]+arr2[n][m] ; 
+            }
+        }
+        System.out.print("sum : ");
+        for(int i=0; i<n;i++){
+           for(int j=0;j<m;j++){
+               System.out.print(sum[n][m]);
+            }
+        }
+    }
+}
+
+--------------------------------------------------test the equality of tow array------------------------------------------
+package com.mycompany.mavenproject1;
+import java.util.Scanner;
+import java.util.Arrays;
+public class Mavenproject1 {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        boolean yesornot=true;
+        int[]arr1 = {10,11,12,13};
+        int[]arr2 = {10,11,12,13};
+        if(arr1.length == arr2.length){
+            for(int i=0;i<arr1.length;i++){
+                if(arr1[i] != arr2[i]){
+                    yesornot= false;  
+                }
+            }
+        }
+        else{
+            yesornot= false;  
+        }
+        if(yesornot){
+            System.out.print("equal");
+        }
+        else{
+            System.out.print("not equal");
+        }
+    }
+}
