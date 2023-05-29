@@ -123,3 +123,340 @@ public class Rectangle {
     }
 }
 
+--------------------------------------create class Airplane-----------------------
+////main:
+
+import java.time.LocalTime;
+
+public class Main {
+  public static void main(String[] args) {
+    Airplane flight1 = new Airplane("CDE345", "London", LocalTime.of(10, 30));
+    Airplane flight2 = new Airplane("KUI765", "New York", LocalTime.of(14, 0));
+    Airplane flight3 = new Airplane("JUY456", "Paris", LocalTime.of(14, 0));
+    System.out.println("Flight Status:");
+    flight1.checkStatus();
+    flight2.checkStatus();
+    flight3.checkStatus();
+    flight1.delay(40);
+    flight2.delay(110);
+    System.out.println("\nCurrent Flight Status:");
+    flight1.checkStatus();
+    flight2.checkStatus();
+    flight3.checkStatus();
+    
+    ////class:
+    
+    // Airplane.java
+import java.time.LocalTime;
+
+public class Airplane {
+  private String flightNumber;
+  private String destination;
+  private LocalTime scheduledDeparture;
+  private int delayTime;
+
+  public Airplane(String flightNumber, String destination, LocalTime scheduledDeparture) {
+    this.flightNumber = flightNumber;
+    this.destination = destination;
+    this.scheduledDeparture = scheduledDeparture;
+    this.delayTime = 0;
+  }
+
+  public String getFlightNumber() {
+    return flightNumber;
+  }
+
+  public void setFlightNumber(String flightNumber) {
+    this.flightNumber = flightNumber;
+  }
+
+  public String getDestination() {
+    return destination;
+  }
+
+  public void setDestination(String destination) {
+    this.destination = destination;
+  }
+
+  public LocalTime getScheduledDeparture() {
+    return scheduledDeparture;
+  }
+
+  public void setScheduledDeparture(LocalTime scheduledDeparture) {
+    this.scheduledDeparture = scheduledDeparture;
+  }
+
+  public int getDelayTime() {
+    return delayTime;
+  }
+
+  public void delay(int minutes) {
+    this.delayTime = minutes;
+    this.scheduledDeparture = this.scheduledDeparture.plusMinutes(minutes);
+  }
+
+  public void checkStatus() {
+    if (delayTime == 0) {
+      System.out.println("Flight " + flightNumber + " is on time.");
+    } else {
+      System.out.println("Flight " + flightNumber + " is delayed by " + delayTime + " minutes.");
+    }
+  }
+}
+
+-------------------------------------bank------------------------------
+//Account.java
+
+public class Account {
+  private String name;
+  private String accountNumber;
+  private double balance;
+
+  public Account(String name, String accountNumber, double balance) {
+    this.name = name;
+    this.accountNumber = accountNumber;
+    this.balance = balance;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getAccountNumber() {
+    return accountNumber;
+  }
+
+  public void setAccountNumber(String accountNumber) {
+    this.accountNumber = accountNumber;
+  }
+
+  public double getBalance() {
+    return balance;
+  }
+
+  public void setBalance(double balance) {
+    this.balance = balance;
+  }
+
+  public void deposit(double amount) {
+    balance += amount;
+  }
+
+  public void withdraw(double amount) {
+    balance -= amount;
+  }
+
+  public String getAccountInfo() {
+    return "Name: " + name + ", Account Number: " + accountNumber + ", Balance: " + balance;
+  }
+}
+
+//Bank.java
+import java.util.ArrayList;
+
+public class Bank {
+  private ArrayList < Account > accounts;
+
+  public Bank() {
+    accounts = new ArrayList < Account > ();
+  }
+
+  public void addAccount(Account account) {
+    accounts.add(account);
+  }
+
+  public void removeAccount(Account account) {
+    accounts.remove(account);
+  }
+
+  public void depositMoney(Account account, double amount) {
+    account.deposit(amount);
+  }
+
+  public void withdrawMoney(Account account, double amount) {
+    account.withdraw(amount);
+  }
+
+  public ArrayList < Account > getAccounts() {
+    return accounts;
+  }
+}
+
+//Main.java
+import java.util.ArrayList;
+public class Main {
+  public static void main(String[] args) {
+    Bank bank = new Bank();
+
+    Account account1 = new Account("Peter Irmgard", "C0011", 5000);
+    Account account2 = new Account("Katja Ruedi", "C0121", 4500);
+    Account account3 = new Account("Marcella Gebhard", "C0222", 20000);
+
+    bank.addAccount(account1);
+    bank.addAccount(account2);
+    bank.addAccount(account3);
+
+    ArrayList < Account > accounts = bank.getAccounts();
+
+    for (Account account: accounts) {
+      System.out.println(account.getAccountInfo());
+    }
+
+    System.out.println("\nAfter depositing 1000 into account1:");
+    bank.depositMoney(account1, 1000);
+    System.out.println(account1.getAccountInfo());
+    System.out.println("No transaction in account2:");
+    System.out.println(account2.getAccountInfo());
+    System.out.println("After withdrawing 5000 from account3:");
+    bank.withdrawMoney(account3, 5000);
+    System.out.println(account3.getAccountInfo());
+  }
+}
+
+--------------------------------------------Employee-------------------------------------------
+//Employee.java
+public class Employee {
+  private String name;
+  private String jobTitle;
+  private double salary;
+
+  public Employee(String name, String jobTitle, double salary) {
+    this.name = name;
+    this.jobTitle = jobTitle;
+    this.salary = salary;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getJobTitle() {
+    return jobTitle;
+  }
+
+  public void setJobTitle(String jobTitle) {
+    this.jobTitle = jobTitle;
+  }
+
+  public double getSalary() {
+    return salary;
+  }
+
+  public void setSalary(double salary) {
+    this.salary = salary;
+  }
+
+  public void raiseSalary(double percentage) {
+    salary = salary + salary * percentage / 100;
+  }
+
+  public void printEmployeeDetails() {
+    System.out.println("Name: " + name);
+    System.out.println("Job Title: " + jobTitle);
+    System.out.println("Salary: " + salary);
+  }
+}
+
+//Main.java
+public class Main {
+  public static void main(String[] args) {
+
+    Employee employee1 = new Employee("Franziska Waltraud", "HR Manager", 40000);
+    Employee employee2 = new Employee("Hubertus Andrea", "Software Engineer", 60000);
+    System.out.println("\nEmployee Details:");
+    employee1.printEmployeeDetails();
+    employee2.printEmployeeDetails();
+
+    employee1.raiseSalary(8);
+    employee2.raiseSalary(12);
+
+    System.out.println("\nAfter raising salary:");
+    System.out.println("\n8% for 'Franziska Waltraud':");
+    employee1.printEmployeeDetails();
+    System.out.println("\n12% for 'Hubertus Andrea':");
+    employee2.printEmployeeDetails();
+  }
+}
+
+--------------------------------------------Book-------------------------------------------
+//Book.java
+import java.util.ArrayList;
+public class Book {
+  private String title;
+  private String author;
+  private String ISBN;
+  private static ArrayList < Book > bookCollection = new ArrayList < Book > ();
+
+  public Book(String title, String author, String ISBN) {
+    this.title = title;
+    this.author = author;
+    this.ISBN = ISBN;
+  }
+
+  public String get_Title() {
+    return title;
+  }
+
+  public void set_Title(String title) {
+    this.title = title;
+  }
+
+  public String get_Author() {
+    return author;
+  }
+
+  public void set_Author(String author) {
+    this.author = author;
+  }
+
+  public String get_ISBN() {
+    return ISBN;
+  }
+
+  public void set_ISBN(String ISBN) {
+    this.ISBN = ISBN;
+  }
+
+  public static void add_Book(Book book) {
+    bookCollection.add(book);
+  }
+
+  public static void remove_Book(Book book) {
+    bookCollection.remove(book);
+  }
+
+  public static ArrayList < Book > get_BookCollection() {
+    return bookCollection;
+  }
+}
+
+
+//Main.java
+import java.util.ArrayList;
+public class Main {
+  public static void main(String[] args) {
+    Book book1 = new Book("The C Programming Language", "Dennis Ritchie, Brian Kernighan", "9780131101630");
+    Book book2 = new Book("An Introduction to Python", "Guido van Rossum", "9355423489");
+    Book.add_Book(book1);
+    Book.add_Book(book2);
+    ArrayList < Book > bookCollection = Book.get_BookCollection();
+    System.out.println("List of books:");
+    for (Book book: bookCollection) {
+      System.out.println(book.get_Title() + " by " + book.get_Author() + ", ISBN: " + book.get_ISBN());
+    }
+    Book.remove_Book(book1);
+    System.out.println("\nAfter removing " + book1.get_Title() + ":");
+    System.out.println("List of books:");
+    for (Book book: bookCollection) {
+      System.out.println(book.get_Title() + " by " + book.get_Author() + ", ISBN: " + book.get_ISBN());
+    }
+  }
+}
