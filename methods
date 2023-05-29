@@ -1,0 +1,135 @@
+===============================================METHODS=======================================================
+
+
+-----------------------min of three num in method-----------------------
+package com.mycompany.mavenproject1;
+import java.util.Scanner;
+
+public class Mavenproject1 {
+    public static double min(double num1,double num2,double num3){
+        if(num1<num2 && num1<num3){
+            return num1 ;
+        }
+        else if(num2<num1 && num2<num3){
+            return num2;
+        }
+        else{
+            return num3;
+        }
+    }
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("enter number one : ");
+        double num1= input.nextDouble();
+        System.out.print("enter number tow : ");
+        double num2= input.nextDouble();
+        System.out.print("enter number three : ");
+        double num3= input.nextDouble();
+        System.out.print(min(num1,num2,num3));
+        }
+    }
+
+-----------------------average of three num in method-----------------------
+package com.mycompany.mavenproject1;
+import java.util.Scanner;
+
+public class Mavenproject1 {
+    public static double average(double num1,double num2,double num3){
+        return ( num1 + num2 + num3 ) / 3;
+    }
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("enter number one : ");
+        double num1= input.nextDouble();
+        System.out.print("enter number tow : ");
+        double num2= input.nextDouble();
+        System.out.print("enter number three : ");
+        double num3= input.nextDouble();
+        System.out.print(average(num1,num2,num3));
+        }
+    }
+
+-----------------------count vowels in string in mithod-----------------------
+package com.mycompany.mavenproject1;
+import java.util.Scanner;
+
+public class Mavenproject1 {
+    public static int count(String str){
+        int count=0;
+        for(int i=0;i<str.length();i++){
+            if(str.charAt(i)=='a'||str.charAt(i)=='e'||str.charAt(i)=='o'||str.charAt(i)=='e'||str.charAt(i)=='u'){
+                count++;
+            }
+        }
+        return count;
+    }
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("enter your words : ");
+        String str= input.nextLine();
+        System.out.print(count(str));
+        }
+    }
+
+-----------------------make small calc in mithod-----------------------
+package com.mycompany.mavenproject1;
+import java.util.Scanner;
+
+public class Mavenproject1 {
+    public static double get_sum(double num1,double num2){
+        return num1+num2;
+    }
+    public static double get_sub(double num1,double num2){
+        return num1-num2;
+    }
+    public static double get_mult(double num1,double num2){
+        return num1*num2;
+    }
+    public static double get_mod(double num1,double num2){
+        return num1%num2;
+    }
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("enter number one : ");
+        double num1= input.nextDouble();
+        System.out.print("enter number tow : ");
+        double num2= input.nextDouble();
+        System.out.print("enter (+ - * %) : ");
+        char calc= input.next().charAt(0);
+        switch(calc){
+            case '+':
+                    System.out.print(get_sum(num1,num2));
+                    break;
+            case '-':
+                    System.out.print(get_sub(num1,num2));
+                    break;
+            case '*':
+                    System.out.print(get_mult(num1,num2));
+                    break;
+            case '%':
+                    System.out.print(get_mod(num1,num2));   
+                    break;
+        }
+        }
+    }
+
+-----------------------max num in array use mithod--------------------------
+package com.mycompany.mavenproject1;
+import java.util.Scanner;
+import java.util.Arrays;
+public class Mavenproject1 {
+    public static int max(int[]arr){
+        int max= arr[0];
+        for(int i=0;i<arr.length;i++){
+            if(arr[0]<arr[i]){
+                max=arr[i];
+            }
+        }
+        return max;
+    }
+    public static void main(String[] args) {
+        int[]arr = {30,5,15,16,20};
+        System.out.print(max(arr));
+        }
+}
+    
