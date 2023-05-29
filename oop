@@ -1,0 +1,125 @@
+==========================(OOP)========================
+
+--------------------------create class person with name age--------------------------
+////main:
+
+package com.mycompany.mavenproject1;
+import java.util.Scanner;
+import java.util.Arrays;
+public class Mavenproject1 {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        person person1=new person("ahmed",19);
+        person person2=new person("mohamed",20);
+        System.out.println(person1.get_name()+person1.get_age());
+        System.out.print(person2.get_name()+person2.get_age());
+    }   
+}
+///class:
+
+package com.mycompany.mavenproject1;
+public class person {
+    private String name;
+    private int age;
+    public person (String name,int age){
+        this.name=name;
+        this.age=age;
+    }
+    public String get_name(){
+        return name;
+    }
+    public int get_age(){
+        return age;
+    }
+}
+
+---------------------------create class Dog with name age--------------------------
+
+///main:
+
+package com.mycompany.mavenproject1;
+import java.util.Scanner;
+import java.util.Arrays;
+public class Mavenproject1 {
+    public static void main(String[] args) {
+        Dog Dog1=new Dog("ahmed","ball");
+        Dog Dog2=new Dog("mohamed","bool");
+        System.out.println(Dog1.get_name()+Dog1.get_breed());
+        System.out.println(Dog2.get_name()+Dog2.get_breed());
+        System.out.println("-------after-------");
+        Dog1.set_name("mostafa");
+        Dog2.set_breed("mahmoud");
+        System.out.println(Dog1.get_name()+Dog1.get_breed());
+        System.out.println(Dog2.get_name()+Dog2.get_breed());
+    }   
+}
+///class:
+
+public class Dog {
+    private String name;
+    private String breed;
+    public Dog(String name,String breed){
+        this.name = name;
+        this.breed = breed;
+    }
+    public String get_name(){
+        return name;
+    }
+    public void set_name(String name){
+        this.name = name;
+    }
+    public String get_breed(){
+        return breed;
+    }
+    public void set_breed(String breed){
+        this.breed = breed;
+    }
+}
+
+--------------------------------------create class Dog with name age-----------------------
+////main:
+
+package com.mycompany.mavenproject1;
+import java.util.Scanner;
+import java.util.Arrays;
+public class Mavenproject1 {
+    public static void main(String[] args) {
+        Rectangle Rectangle=new Rectangle(10,10);
+        System.out.println(Rectangle.get_area()+"/"+Rectangle.get_perimeter());
+        System.out.println("-------after-------");
+        Rectangle.set_width(15);
+        Rectangle.set_height(5);
+        System.out.println(Rectangle.get_area()+"/"+Rectangle.get_perimeter());
+    }   
+}
+///class:
+
+package com.mycompany.mavenproject1;
+
+public class Rectangle {
+    private double width;
+    private double height;
+    public Rectangle(double width,double height){
+        this.width = width;
+        this.height = height;
+    }
+    public double get_width(){
+        return width;
+    }
+    public void set_width(double width){
+        this.width = width;
+    }
+    public double get_height(){
+        return height;
+    }
+    public void set_height(double height){
+        this.height = height;
+    }
+    public double get_area(){
+        return width * height;
+    }
+    public double get_perimeter(){
+        return 2*(width + height);
+    }
+}
+
