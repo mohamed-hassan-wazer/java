@@ -1,0 +1,60 @@
+<?php
+-------------------------------sql connect ----------------------------------------------------
+
+$con1 = new mysqli('localhost','root','','db1');
+if($con1->connect_error)
+    echo 'no connection';
+else
+    echo 'connection done';
+
+-------------------------------sql create ----------------------------------------------------
+
+$sqlcreate = 'create database db3';
+$com1 = $con1->query($sqlcreate);
+if ($com1 )
+    echo 'database created';
+else
+echo 'database not created'.$con1->error;
+
+-------------------------------sql drop ----------------------------------------------------
+
+$sqldrop = 'drop database db2';
+$com2 = $con1->query($sqldrop);
+if ($com2 )
+    echo 'database droped';
+else
+echo 'database not droped';
+
+-------------------------------table create ----------------------------------------------------
+
+$sqltable = "create TABLE `users`(`id` int AUTO_INCREMENT, primary key(`id`),`name` varchar(50) not null,`pass` varchar(20) not null)";
+$com3 = $con1->query($sqltable);
+if ($com3 )
+    echo 'table create';
+else
+    echo 'table not create';
+
+
+-------------------------------table insert ----------------------------------------------------
+
+$sqlinsert = "insert into users (name,pass) values ('mohamed','123')";
+$com4 = $con1->query($sqlinsert);
+if ($com4 )
+    echo 'insert done';
+else
+    echo 'inser not done';
+
+-------------------------------table select ----------------------------------------------------
+$sqliselect = "select * from users";
+    $result = $con1->query($sqliselect);
+    if($result -> num_rows > 0){
+        while($row = $result->fetch_assoc()){
+            echo "id: ". $row["id"]. " -name: ". $row["name"]. " - pass: ".$row["pass"]."<br>";
+        }
+    }
+    else{
+        echo "0 results";
+    }
+$con1->close();
+?>
+
