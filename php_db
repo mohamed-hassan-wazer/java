@@ -37,7 +37,7 @@ else
 
 -------------------------------table insert ----------------------------------------------------
 
-$sqlinsert = "insert into users (name,pass) values ('mohamed','123')";
+$sqlinsert = "insert into users (name,pass) values ('mohamed','123'),('ahmed','132'),('mostafa','231')";
 $com4 = $con1->query($sqlinsert);
 if ($com4 )
     echo 'insert done';
@@ -49,12 +49,31 @@ $sqliselect = "select * from users";
     $result = $con1->query($sqliselect);
     if($result -> num_rows > 0){
         while($row = $result->fetch_assoc()){
-            echo "id: ". $row["id"]. " -name: ". $row["name"]. " - pass: ".$row["pass"]."<br>";
+            echo "id: ". $row["id"]. " -name: ". $row["name"]. " - pass: ".$row["pass"]." - age: ".$row["age"]."<br>";
         }
     }
     else{
         echo "0 results";
     }
+
+-----------------------------------------------add column--------------------------------------
+
+$sqlcolumnAdd = "alter table `users` add column `for` int not null";
+$com7= $con1->query($sqlcolumnAdd);
+if ($com7 )
+    echo 'column create';
+else
+    echo 'column not create';
+
+-----------------------------------------------drop column--------------------------------------
+
+$sqlcolumnDrop = "alter table `users` drop column `for`";
+$com8= $con1->query($sqlcolumnDrop);
+if ($com8 )
+    echo 'column droped';
+else
+    echo 'column not droped';
+
 $con1->close();
 ?>
 
