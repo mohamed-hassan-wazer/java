@@ -74,6 +74,15 @@ if ($com8 )
 else
     echo 'column not droped';
 
+-----------------------------------------------drop row--------------------------------------
+
+$sqldelete="DELETE FROM Task1 ORDER BY id DESC LIMIT 1"; 
+$com4=$con1->query($sqldelete);
+ if($com4)
+    echo "Last row is deleted";
+ else
+    echo "Error delete".$con1->error;
+        
 $con1->close();
 ?>
 
