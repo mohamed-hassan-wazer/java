@@ -1,0 +1,47 @@
+<?php
+$con1 = new mysqli("localhost",'root','','Task1');
+if ($con1->connect_error)
+    echo "No connecting";
+else 
+    echo "connecting <br>";
+// create database
+/*$sqlcreate="Create database Task2";
+$com = $con1->query ($sqlcreate);
+if ($com)
+    echo "Database Created";
+else
+    echo "Error Creating database" .$con1->error;*/
+
+// create table
+/*$sqltable = "create table `Task1`(`id` int auto_increment , primary key (`id`),
+`FirstName` varchar(45) not null,
+`LastName`  varchar(45) not null)"; 
+$com3=$con1->query($sqltable);
+if ($com3)
+    echo "Table Created";
+else
+    echo "Error Created table ".$con1->error;*/
+// insert values
+/*$sqlinsert="insert into `Task1`(id,FirstName,LastName) values(1,'Ahmed','Omar'),(2,'Nada','Mohamed'),(3,'Ali','Ahmed')";
+$com4=$con1->query($sqlinsert);
+if ($com4)
+    echo "Insert Done";
+else
+    echo "Error Inserted ".$con1->error;*/
+// display data
+$sqliselect = "SELECT * FROM Task1";
+$com5 = $con1->query($sqliselect);
+if ($com5->num_rows > 0) {
+    while ($row = $com5->fetch_assoc()) {
+        echo "<br>ID: " . $row["id"] . "<br>First Name: " . $row["FirstName"] . "<br>Last Name: " . $row["LastName"];
+    }
+} else {
+    echo "0 results";
+}
+
+$con1->close();
+
+
+
+
+?>

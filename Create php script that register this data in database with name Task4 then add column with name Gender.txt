@@ -1,0 +1,53 @@
+<?php
+$con1 = new mysqli("localhost",'root','','Task2');
+if ($con1->connect_error)
+    echo "No connecting";
+else 
+    echo "connecting <br>";
+
+/*$sqlcreate="Create database Task6";
+$com = $con1->query ($sqlcreate);
+if ($com)
+    echo "Database Created";
+else
+    echo "Error Creating database" .$con1->error;*/
+
+// create table
+/*$sqltable = "create table `Task6`(`N_Id` int auto_increment , primary key (`N_Id`),`Name` varchar(45) not null,`phone` varchar(45) not null)"; 
+
+
+$com1=$con1->query($sqltable);
+if ($com1)
+    echo "Table Created";
+else
+    echo "Error Created table ".$con1->error;*/
+// insert values
+/*$sqlinsert="insert into `Task6`(N_Id,Name,phone) values(202001,'Nada Ahmed','01128876350'),(202002,'Mara Ali','01228886350')";
+$com2=$con1->query($sqlinsert);
+if ($com2)
+    echo "Insert Done";
+else
+    echo "Error Inserted ".$con1->error;*/
+// add column
+/*$sqlcolumnAdd = "alter table `Task6` add column `Gender` varchar(45) not null";
+$com3= $con1->query($sqlcolumnAdd);
+if ($com3 )
+    echo 'column create';
+else
+    echo 'column not create';*/
+
+
+//display 
+$sqliselect = "SELECT * FROM Task6";
+$com4= $con1->query($sqliselect);
+if ($com4->num_rows > 0) {
+    while ($row = $com4->fetch_assoc()) {
+        echo "<br>N_Id: " . $row["N_Id"] . "<br>Name: " . $row["Name"] . "<br>phone: " . $row["phone"];
+    }
+} else {
+    echo "0 results";
+}
+$con1->close();
+?>
+
+

@@ -1,0 +1,24 @@
+<?php
+$con1 = new mysqli("localhost",'root','','Task2');
+if ($con1->connect_error)
+    echo "No connecting";
+else 
+    echo "connecting <br>";
+
+$sqlcreate="Create database Task8";
+$com = $con1->query ($sqlcreate);
+if ($com)
+    echo "Database Created";
+else
+    echo "Error Creating database" .$con1->error;
+هتكرر وكل مره تغير اسم ال data base , $com
+// drop database
+/*$sqldrop="drop database Task3";
+$com2=$con1->query($sqldrop);
+if($com2)
+    echo "Database Droped";
+else
+    "Error Droping database".$con1->error;*/
+
+$con1->close();
+?>

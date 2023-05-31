@@ -1,0 +1,53 @@
+<?php
+$con1 = new mysqli("localhost",'root','','Task2');
+if ($con1->connect_error)
+    echo "No connecting";
+else 
+    echo "connecting <br>";
+
+/*$sqlcreate="Create database Task3";
+$com = $con1->query ($sqlcreate);
+if ($com)
+    echo "Database Created";
+else
+    echo "Error Creating database" .$con1->error;*/
+
+// create table
+/*$sqltable = "create table `Task3`(`code` int auto_increment , primary key (`code`),`Name` varchar(45) not null,`price` double not null)"; 
+
+
+$com1=$con1->query($sqltable);
+if ($com1)
+    echo "Table Created";
+else
+    echo "Error Created table ".$con1->error;*/
+// insert values
+/*$sqlinsert="insert into `Task3`(code,Name,price) values(158,'rice','11.28'),(148,'egg','2.0'),(189,'milk','15.0')";
+$com2=$con1->query($sqlinsert);
+if ($com2)
+    echo "Insert Done";
+else
+    echo "Error Inserted ".$con1->error;*/
+
+// Drop Last Row
+/*$sqldelete="DELETE FROM Task3 ORDER BY code DESC LIMIT 1"; 
+    $com3=$con1->query($sqldelete);
+    if($com3)
+        echo "Last row is deleted";
+    else
+        echo "Error delete".$con1->error;*/
+
+// display 
+$sqliselect = "SELECT * FROM Task3";
+$com3= $con1->query($sqliselect);
+if ($com3->num_rows > 0) {
+    while ($row = $com3->fetch_assoc()) {
+        echo "<br>code: " . $row["code"] . "<br>Name: " . $row["Name"] . "<br>price: " . $row["price"];
+    }
+} else {
+    echo "0 results";
+}
+$con1->close();
+?>
+
+
